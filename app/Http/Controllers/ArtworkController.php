@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Artist;
 use App\Artwork;
-use Illuminate\Http\Request;
+use App\Collection;
+use App\Http\Resources\ArtworkResource;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class ArtworkController extends Controller
 {
@@ -14,72 +17,26 @@ class ArtworkController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return ArtworkResource::collection(
+            QueryBuilder::for(Artwork::class)
+                ->allowedIncludes('collection', 'artist')
+                ->allowedFilters('name', 'collection_id', 'artist_id', 'published_at')
+                ->get()
+            );
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Artwork  $artwork
+     * @param  \App\Artwork  $artist
      * @return \Illuminate\Http\Response
      */
     public function show(Artwork $artwork)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Artwork  $artwork
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Artwork $artwork)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Artwork  $artwork
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Artwork $artwork)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Artwork  $artwork
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Artwork $artwork)
-    {
-        //
+        return new ArtworkResource(
+            QueryBuilder::for(Artwork::where('id', $artwork->id))
+                ->allowedIncludes('collection', 'artist')
+                ->first()
+            );
     }
 }

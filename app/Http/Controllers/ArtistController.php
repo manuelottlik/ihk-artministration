@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Artist;
-use Illuminate\Http\Request;
+use App\Http\Resources\ArtistResource;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class ArtistController extends Controller
 {
@@ -14,28 +15,12 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return ArtistResource::collection(
+            QueryBuilder::for(Artist::class)
+                ->allowedIncludes('artworks')
+                ->allowedFilters('name', 'born_at', 'died_at')
+                ->get()
+            );
     }
 
     /**
@@ -46,40 +31,10 @@ class ArtistController extends Controller
      */
     public function show(Artist $artist)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Artist  $artist
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Artist $artist)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Artist  $artist
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Artist $artist)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Artist  $artist
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Artist $artist)
-    {
-        //
+        return new ArtistResource(
+            QueryBuilder::for(Artist::where('id', $artist->id))
+                ->allowedIncludes('artworks')
+                ->first()
+            );
     }
 }
