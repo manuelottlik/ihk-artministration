@@ -11,14 +11,12 @@
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::namespace ('Frontend')->group(function () {
+    Route::get('/', 'HomeController@index')->name('home');
 
-Route::resource('collections', 'CollectionController');
-Route::resource('artists', 'ArtistController');
-Route::resource('artworks', 'ArtworkController');
+    Route::resource('collections', 'CollectionController')->except(['show', 'update']);
+    Route::resource('artists', 'ArtistController')->except(['show', 'update']);
+    Route::resource('artworks', 'ArtworkController')->except(['show', 'update']);
+});

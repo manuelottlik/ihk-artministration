@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +11,14 @@ use Illuminate\Http\Request;
 |
  */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::resource('collections', 'CollectionController')->only([
+    "index", "show",
+]);
+
+Route::resource('artists', 'ArtistController')->only([
+    "index", "show",
+]);
+
+Route::resource('artworks', 'ArtworkController')->only([
+    "index", "show",
+]);
