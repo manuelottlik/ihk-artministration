@@ -1,4 +1,4 @@
-@extends('layouts.app') 
+@extends('layouts.app')
 @section('content')
 
 <div class="card">
@@ -34,6 +34,16 @@
             </div>
 
             <div class="form-group">
+                <label for="aw-location">Ort</label>
+                <input type="text" name="location" id="aw-location" value="{{$artwork->location}}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="aw-description">Beschreibung</label>
+                <textarea name="description" id="aw-description" class="form-control">{{$artwork->description}}</textarea>
+            </div>
+
+            <div class="form-group">
                 <label for="aw-collection">Sammlung</label> @if (!count($collections))
                 <div class="alert alert-danger">Sie müssen eine <a href="{{route('collections.create')}}">Sammlung erstellen</a>, bevor Sie ein Kunstwerk
                     hinzufügen können!
@@ -45,7 +55,7 @@
                 @else
                     <option value="{{$collection->id}}">{{$collection->name}}</option>
                 @endif
-            
+
                 @endforeach
             </select> @endif
             </div>
@@ -62,7 +72,7 @@
                             @else
                                 <option value="{{$artist->id}}">{{$artist->name}}</option>
                             @endif
-                        
+
                             @endforeach
                         </select> @endif
             </div>

@@ -47,12 +47,17 @@ class ArtworkController extends Controller
         $request->validate([
             "id" => "nullable|integer",
             "name" => "required|min:3|max:255|string",
+            "location" => "nullable|min:3|max:255|string",
+            "description" => "nullable|min:5|max:1000|string",
             "value" => "nullable|integer|min:0",
             "published_at" => "nullable|before_or_equal:today",
             "purchased_at" => "required|before_or_equal:today",
             "collection_id" => "required|integer|exists:collections,id",
             "artist_id" => "required|integer|exists:artists,id",
             "file" => "nullable|image",
+            "meas_x" => "nullable|int|min:0",
+            "meas_y" => "nullable|int|min:0",
+            "meas_z" => "nullable|int|min:0",
         ]);
 
         $artwork = Artwork::updateOrCreate($request->only('id'), $request->input());

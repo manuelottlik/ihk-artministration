@@ -15,11 +15,17 @@ class ArtworkResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "id" => $this->id,
+            "id" => bcrypt($this->id),
             "name" => $this->name,
+            "description" => $this->description,
             "collection" => new CollectionResource($this->whenLoaded('collection')),
             "artist" => new ArtistResource($this->whenLoaded('artist')),
             "published_at" => $this->published_at,
+            "measurements" => [
+                "x" => $this->meas_x,
+                "y" => $this->meas_y,
+                "z" => $this->meas_z,
+            ],
             "file" => $this->file,
         ];
     }

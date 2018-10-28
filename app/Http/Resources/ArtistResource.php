@@ -15,7 +15,7 @@ class ArtistResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "id" => $this->id,
+            "id" => bcrypt($this->id),
             "name" => $this->name,
             "born_at" => $this->born_at,
             "died_at" => $this->died_at,
