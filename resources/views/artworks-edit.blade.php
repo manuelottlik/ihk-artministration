@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app') 
 @section('content')
 
 <div class="card">
@@ -76,6 +76,42 @@
                             @endforeach
                         </select> @endif
             </div>
+            <div class="form-row">
+
+                <div class="col">
+                    <div class="form-group">
+                        <label for="aw-meas_x">Breite</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" min="0" name="meas_x" id="aw-meas_x" value="{{$artwork->meas_x}}">
+                            <div class="input-group-append">
+                                <span class="input-group-text">cm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="aw-meas_y">Höhe</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" min="0" name="meas_y" id="aw-meas_y" value="{{$artwork->meas_y}}">
+                            <div class="input-group-append">
+                                <span class="input-group-text">cm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="aw-meas_z">Tiefe</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" min="0" name="meas_z" id="aw-meas_z" value="{{$artwork->meas_z}}">
+                            <div class="input-group-append">
+                                <span class="input-group-text">cm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="form-group">
                 <label for="aw-value">Wert in Euro</label>
@@ -84,7 +120,7 @@
 
                     <input type="number" class="form-control" min="0" name="value" id="aw-value" value="{{$artwork->value}}">
                     <div class="input-group-append">
-                        <span class="input-group-text" id="basic-addon1">€</span>
+                        <span class="input-group-text">€</span>
                     </div>
                 </div>
             </div>
