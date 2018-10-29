@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "d859d7a2-566d-48ad-b79e-00edf1d46568",
+		"name": "ihk-artministration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "collections",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{domain}}/collections?include=artworks",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"collections"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "artworks"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{domain}}/collections/1?include=artworks",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"collections",
+								"1"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "artworks"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "artists",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{domain}}/artists?include=artworks",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"artists"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "artworks"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{domain}}/artists/1?include=artworks",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"artists",
+								"1"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "artworks"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "artworks",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{domain}}/artworks?include=collection,artist&sort=-name&filter[name]=mona",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"artworks"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "collection,artist"
+								},
+								{
+									"key": "sort",
+									"value": "-name"
+								},
+								{
+									"key": "filter[name]",
+									"value": "mona"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{domain}}/artworks/1?include=collection,artist",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"artworks",
+								"1"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "collection,artist"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
