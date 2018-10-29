@@ -15,7 +15,7 @@ class CollectionResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "id" => bcrypt($this->id),
+            "id" => $this->id,
             "name" => $this->name,
             "artworks" => ArtworkResource::collection($this->whenLoaded('artworks')),
         ];
