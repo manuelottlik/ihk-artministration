@@ -61,11 +61,9 @@ class ArtworkController extends Controller
         ]);
 
         $artwork = Artwork::updateOrCreate($request->only('id'), $request->input());
+        $artwork->file = $request->file('file')->store('artworks', 'public');
+        $artwork->save();
 
-        //$artwork->file = $request->file('file')->store('artworks', 'public');
-        //$artwork->save();
-        //$f = Storage::disk('public')->put("public/" . $request->file('file')->hashName(), $request->file('file'));
-        //dd(Storage::url($f));
         return redirect(route('artworks.index'));
     }
 
