@@ -14,9 +14,13 @@
 Auth::routes();
 
 Route::namespace ('Frontend')->group(function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->middleware('guest')->name('home');
 
-    Route::resource('collections', 'CollectionController')->except(['show', 'update']);
-    Route::resource('artists', 'ArtistController')->except(['show', 'update']);
-    Route::resource('artworks', 'ArtworkController')->except(['show', 'update']);
+    Route::middleware('auth')->group(function () {
+        Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+        Route::resource('collections', 'CollectionController')->except(['show', 'update']);
+        Route::resource('artists', 'ArtistController')->except(['show', 'update']);
+        Route::resource('artworks', 'ArtworkController')->except(['show', 'update']);
+    });
+
 });

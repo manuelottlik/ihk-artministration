@@ -1,22 +1,17 @@
 @extends('layouts.app') 
-@section('content')
-
+@section('content') @foreach ($artworks as $artwork)
 <div class="card">
-    <div class="card-header">Dashboard</div>
-
-    <div class="card-body d-flex justify-content-around">
-        <a href="{{route('collections.index')}}" class="text-center">
-            <div class="display-1"><i class="fas fa-object-group"></i></div>
-            Sammlungen einsehen
-        </a>
-        <a href="{{route('artists.index')}}" class="text-center">
-            <div class="display-1"><i class="fas fa-user"></i></div>
-            Künstler einsehen
-        </a>
-        <a href="{{route('artworks.index')}}" class="text-center">
-            <div class="display-1"><i class="fas fa-image"></i></div>
-            Kunstwerke einsehen
-        </a>
+    <div class="card-header">{{$artwork->name}} von {{$artwork->artist->name}}</div>
+    <div class="card-body">
+        <img src="{{Storage::url($artwork->file)}}" />
     </div>
-</div>
+    <div class="card-footer">
+        <table class="table">
+            <tr>
+                <th>1</th>
+                <td>2</td>
+            </tr>
+        </table>
+    </div>
+</div><br> @endforeach
 @endsection

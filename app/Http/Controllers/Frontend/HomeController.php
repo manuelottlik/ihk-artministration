@@ -3,17 +3,18 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Artwork;
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Show the presentation.
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
-    public function __construct()
+    public function index()
     {
-        $this->middleware('auth');
+        return view('home', ['artworks' => Artwork::all()]);
     }
 
     /**
@@ -21,8 +22,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function dashboard()
     {
-        return view('home');
+        return view('dashboard');
     }
 }
