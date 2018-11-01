@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class ArtworkResource extends JsonResource
 {
@@ -26,7 +27,10 @@ class ArtworkResource extends JsonResource
                 "y" => $this->meas_y,
                 "z" => $this->meas_z,
             ],
-            "file" => $this->file,
+            $this->mergeWhen(!empty($this->file), [
+                "file" => Storage::url($this->file),
+            ]),
+
         ];
     }
 }
