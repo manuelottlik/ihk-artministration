@@ -22,3 +22,17 @@ Route::resource('artists', 'ArtistController')->only([
 Route::resource('artworks', 'ArtworkController')->only([
     "index", "show",
 ]);
+
+Route::middleware('auth')->group(function () {
+    Route::resource('collections', 'CollectionController')->only([
+        "store",
+    ]);
+
+    Route::resource('artists', 'ArtistController')->only([
+        "store",
+    ]);
+
+    Route::resource('artworks', 'ArtworkController')->only([
+        "store",
+    ]);
+});
