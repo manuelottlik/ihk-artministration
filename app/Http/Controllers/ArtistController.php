@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Artist;
 use App\Http\Resources\ArtistResource;
 use Spatie\QueryBuilder\QueryBuilder;
+use Illuminate\Http\Request;
 
 class ArtistController extends Controller
 {
@@ -36,5 +37,23 @@ class ArtistController extends Controller
                 ->allowedIncludes('artworks')
                 ->first()
             );
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            "id" => "nullable|integer",
+            "name" => "required|min:3|max:255",
+            "born_at" => "required|before_or_equal:today",
+            "died_at" => "required|before_or_equal:today",
+        ]);
+
+        return Artist::updateOrCreate($request->only('id'), $request->input());
     }
 }
