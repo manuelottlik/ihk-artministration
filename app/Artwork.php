@@ -6,7 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Artwork extends Model
 {
-    protected $fillable = ['name', 'location', 'description', 'collection_id', 'artist_id', 'value', 'published_at', 'purchased_at', 'meas_x', 'meas_y', 'meas_z'];
+    protected $fillable = [
+        'name',
+        'location',
+        'description',
+        'collection_id',
+        'artist_id',
+        'value',
+        'published_at',
+        'purchased_at',
+        'meas_x',
+        'meas_y',
+        'meas_z',
+    ];
     protected $dates = ['published_at', 'purchased_at', 'created_at', 'updated_at'];
 
     public function collection()
