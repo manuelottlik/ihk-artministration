@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Artist extends Model
 {
-    protected $fillable = ["name", "born_at"];
+    protected $fillable = ["name", "born_at", "died_at"];
     protected $dates = ['born_at', 'died_at', 'createed_at', 'updated_at'];
     public function artworks()
     {
