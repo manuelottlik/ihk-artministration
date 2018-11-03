@@ -19,7 +19,14 @@
 
             <div class="form-group">
                 <label for="at-born_at">Geburtstag</label>
-            <input type="date" name="born_at" class="form-control" id="at-born_at" max="{{ now()->format('Y-m-d') }}" value="{{optional($artist->born_at)->format('Y-m-d')}}" />
+                <input type="date" name="born_at" class="form-control" id="at-born_at" max="{{ now()->format('Y-m-d') }}" value="{{optional($artist->born_at)->format('Y-m-d')}}"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="at-died_at">Todestag</label>
+                <input type="date" name="died_at" class="form-control" id="at-died_at" max="{{ now()->format('Y-m-d') }}" value="{{optional($artist->died_at)->format('Y-m-d')}}"
+                />
             </div>
         </form>
     </div>
