@@ -23,7 +23,7 @@ Route::resource('artworks', 'ArtworkController')->only([
     "index", "show",
 ]);
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth:api')->group(function () {
     Route::resource('collections', 'CollectionController')->only([
         "store",
     ]);
