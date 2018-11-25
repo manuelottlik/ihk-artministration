@@ -1,4 +1,9 @@
-## How To Install
+## Systemvoraussetzungen
+- Git
+- Docker
+- Text Editor
+
+## Installationsschritte
 1. git clone https://github.com/manuelottlik/ihk-artministration.git
 2. cd ihk-artministration
 3. git submodule init
