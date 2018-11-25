@@ -51,7 +51,7 @@ class ArtistController extends Controller
             "id" => "nullable|integer",
             "name" => "required|min:3|max:255",
             "born_at" => "required|before_or_equal:today",
-            "died_at" => "required|before_or_equal:today",
+            "died_at" => "nullable|before_or_equal:today",
         ]);
 
         return Artist::updateOrCreate($request->only('id'), $request->input());

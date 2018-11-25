@@ -6,6 +6,226 @@
 	},
 	"item": [
 		{
+			"name": "oauth",
+			"item": [
+				{
+					"name": "token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "An2DOvWEuRbrkpbsrc1AwTo2C6DJNE869JnOTInj",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "artministration@nordlb.de",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/oauth/token",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": false
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"disabled": false
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "grant_type",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "sRzZQb5aRawP1pxk1hgJavd5XVZUm5HoiV6fS63l",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "hans@web.de",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "test123,",
+											"type": "text"
+										},
+										{
+											"key": "scope",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/oauth/token",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-store, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Oct 2018 08:52:45 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.2.4",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								},
+								{
+									"key": "pragma",
+									"value": "no-cache",
+									"name": "pragma",
+									"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+								}
+							],
+							"cookie": [],
+							"body": "{\"token_type\":\"Bearer\",\"expires_in\":31536000,\"access_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjE3NzljYzA3ZjhlNDYyMTViZjQ5YTJjOWM0OTY1ZGYxNmQxMGRmYWNkNTFkMWMzZTIzZmRjM2Q0ZmUzYWRjNzE2YzJkMDc4N2I1NzNjZmYyIn0.eyJhdWQiOiIyIiwianRpIjoiMTc3OWNjMDdmOGU0NjIxNWJmNDlhMmM5YzQ5NjVkZjE2ZDEwZGZhY2Q1MWQxYzNlMjNmZGMzZDRmZTNhZGM3MTZjMmQwNzg3YjU3M2NmZjIiLCJpYXQiOjE1MzkwNzUxNjUsIm5iZiI6MTUzOTA3NTE2NSwiZXhwIjoxNTcwNjExMTY1LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.It3RDS5AtvBlOqI1UV4GYoLbedmAeRAoVRX0xkAJqq19JXZe-vC72HS_SuBMGlKfKXo16ahVb0h96DjTCZpeeVHmbyZI2f7Qbh_oPmyJDmLjPPRvxfGk-IuWLqEcFD6UQ8j135vl0yQTvIZ-TzP8Q04PXMiTAUM4tozWpkkVsrhxTDgiEcplEXIqeiSZ2l6An0fr9ziBRjDj0L4pSVAneB3cGpKos1MWE13a_DpeGstGRqEVIw6PHvdLw-gCH-OZeg5g6qizNFdiTLEm_yuodGE4GxUMc0uVR95pGkYFjKQkgMlhX6nyrcrKPtI9k6rdKkJ-VtUUDdBT3kQdqF65nJQkUMFfCFccc7J__k-bFPqRcDPDC_3RLbCxKfIifirnhGxmeS5KXlAKkRBpVtW5eaxTd-TyXYLSvIoJDtHwbFVyyIjqaXXgNLufpmvNsKLlo9bedFYAeTGnFUmOMwXPnoX7-6NWqn-oZRssSvElvdxkm6rAPBPMcdHDnDe5VVxKCIrzeC4BjXGBsVqoreKlzMz6EucxdhOMx8v4dmkJFwLAJLvqxnXifA3dJPxFWVT5WLvwfM3HCVYjQrTtAfN-xSu289M5_LuD6Zpu2hFYuYsu_wCLqyKsJPmIrSFmEPCGZ8mG32g17GVEY5jlbr-3k0BUxs0VKmcL68f6UhanWTo\",\"refresh_token\":\"def5020053b7194765f7fcacc33b20d38c916154fd1bc33a43c706553a20e117adb225e6ff431c7e10e59aa93dcb6a927f70a314979c83d4e580d8202f8ce4ba54714abdef93370324af53af49ef0e069d1a7f7d814353365aaafef2ef36d2df0e4dcfcb43bc544ce8a4e4701d72dc78c821e675590252b8e29405b56efb108eb34c6c8f0a67b134d901033e700c837feaaf69d6c91bc39d6fd9ad77228e80172d41ec43ca79ff2cdb98510cefacf65e0657747a5db96fb53f268e82be2485b90543d53323cceaa55ce359dd04526571caf0e9efc30d37b55cd6cd6379de3cb522bdc64ca7f7b6fdf201798d44d691c348c31c254ffb084c30daf559629a7a0f0c617540db620f59934df8635d5aaf9aca4b04829ccd164ff3842361f174f3271f2d41b40494c49f643adfce1097fafc82b281993bee199cac3d6f9d91e1de88a88a149ab1fe97a429efdbb0dbac49d37a2a2247da9b8621ed9b95313401b0b86d\"}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7677d3e2-4276-4715-bbff-cb749842d82c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0383d36c-05e8-440a-b185-f610b6ca6e03",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
 			"name": "collections",
 			"item": [
 				{
@@ -27,11 +247,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{domain}}/collections?include=artworks",
+							"raw": "{{domain}}/api/collections?include=artworks",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
+								"api",
 								"collections"
 							],
 							"query": [
@@ -63,11 +284,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{domain}}/collections/1?include=artworks",
+							"raw": "{{domain}}/api/collections/1?include=artworks",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
+								"api",
 								"collections",
 								"1"
 							],
@@ -76,6 +298,45 @@
 									"key": "include",
 									"value": "artworks"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Bildsammlung",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/collections",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"collections"
 							]
 						}
 					},
@@ -105,11 +366,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{domain}}/artists?include=artworks",
+							"raw": "{{domain}}/api/artists?include=artworks",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
+								"api",
 								"artists"
 							],
 							"query": [
@@ -141,11 +403,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{domain}}/artists/1?include=artworks",
+							"raw": "{{domain}}/api/artists/1?include=artworks",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
+								"api",
 								"artists",
 								"1"
 							],
@@ -154,6 +417,55 @@
 									"key": "include",
 									"value": "artworks"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Van Gogh",
+									"type": "text"
+								},
+								{
+									"key": "born_at",
+									"value": "10/10/2018",
+									"type": "text"
+								},
+								{
+									"key": "died_at",
+									"value": "02/11/2018",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/artists",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"artists"
 							]
 						}
 					},
@@ -183,11 +495,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{domain}}/artworks?include=collection,artist&sort=-name&filter[name]=mona",
+							"raw": "{{domain}}/api/artworks?include=collection,artist&sort=-name&filter[name]=t",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
+								"api",
 								"artworks"
 							],
 							"query": [
@@ -201,7 +514,7 @@
 								},
 								{
 									"key": "filter[name]",
-									"value": "mona"
+									"value": "t"
 								}
 							]
 						}
@@ -227,11 +540,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{domain}}/artworks/1?include=collection,artist",
+							"raw": "{{domain}}/api/artworks/1?include=collection,artist",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
+								"api",
 								"artworks",
 								"1"
 							],
@@ -244,8 +558,94 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Bild",
+									"type": "text"
+								},
+								{
+									"key": "purchased_at",
+									"value": "10/10/2018",
+									"type": "text"
+								},
+								{
+									"key": "collection_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "artist_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/artworks",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"artworks"
+							]
+						}
+					},
+					"response": []
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "926382f2-7f0b-4d06-8829-870d6cebee8c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0c46ca74-eb0e-4b15-9eac-670a79c28e08",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
