@@ -1,3 +1,5 @@
+# This repository is now archived and won't get updated anymore
+
 ## Systemvoraussetzungen
 - Git
 - Docker
